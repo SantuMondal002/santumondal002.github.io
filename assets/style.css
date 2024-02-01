@@ -1,0 +1,356 @@
+/* Santu Mondal https://santumondal002.github.io/ */
+
+:root {
+  --color-accent: hsl( 80 75% 50%);
+  --color-bg-1:   hsl( 80  0% 10%);
+  --color-bg-2:   hsl( 80  0% 15%);
+  --color-txt-1:  hsl( 80  0% 90%);
+  --color-txt-2:  hsl( 80 20% 65%);
+  --color-txt-3:  hsl( 40 55% 55%);
+  --color-sel-bg: hsl(120 25% 25%);
+  --color-shadow: hsl( 80  0%  0% / 50%);
+
+  accent-color: var(--color-accent);
+  color-scheme: only dark;
+  --border-radius: 0.25rem;
+  --font-sans: "Source Sans 3 VF", "Segoe UI", ui-sans-serif, Arial, sans-serif;
+  --font-mono: "Cascadia Mono", Consolas, ui-monospace, "Courier New", monospace;
+}
+*, ::before, ::after {
+  box-sizing: inherit;
+}
+:focus-visible {
+  outline-offset: 0.0625rem;
+  outline: dashed 0.125rem;
+}
+::selection {
+  background-color: var(--color-sel-bg);
+  color: var(--color-txt-1);
+  text-shadow: none;
+}
+:root {
+  background-color: var(--color-bg-1);
+  box-sizing: border-box;
+  color: var(--color-txt-1);
+  font: 1rem/1.5 var(--font-sans);
+  scroll-behavior: smooth;
+  tab-size: 4;
+  text-underline-offset: 0.0625em;
+  text-underline-position: from-font;
+  transition: all 0.25s;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+@media
+  screen and (-webkit-min-device-pixel-ratio: 2),
+  screen and (min-resolution: 2dppx) {
+  body {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+body > header {
+  background-color: var(--color-bg-1);
+  border-block-end: 0.25rem solid color-mix(in srgb, currentcolor, transparent);
+  font-size: 1.125rem;
+  inset-block-start: 0;
+  padding-block: 0.75em;
+  position: sticky;
+  z-index: 10;
+}
+body > header a[href] {
+  text-decoration: none;
+}
+@media only screen and (hover: hover) {
+  body > header a[href]:hover {
+    text-decoration: underline from-font;
+  }
+}
+body > main {
+  display: block;
+  margin-block: 2rem;
+}
+
+a[href] {
+  background-color: transparent;
+  color: var(--color-accent);
+  text-decoration: underline from-font;
+  -webkit-text-decoration-skip: objects;
+}
+@media only screen and (hover: hover) {
+  a[href]:hover {
+    text-decoration: none;
+  }
+}
+a[href]:active {
+  color: var(--color-txt-1);
+  text-decoration: underline from-font;
+}
+a[href][target="_blank"] {
+  display: inline-block;
+}
+a[href][target="_blank"]::after {
+  content: "\2197";
+  display: inline-block;
+  font-family: "Source Sans 3 VF", "Courier New", monospace;
+  font-size-adjust: from-font;
+  margin-inline-start: 0.125em;
+}
+
+abbr[title] {
+  text-decoration: underline dotted from-font;
+}
+@media only screen and (hover: none) {
+  abbr[title] {
+    text-decoration: none;
+  }
+}
+address {
+  font-style: normal;
+}
+
+button {
+  background-color: var(--color-bg-1);
+  border-radius: var(--border-radius);
+  border: 0.125rem solid color-mix(in srgb, var(--color-accent), transparent);
+  box-shadow: 0 0 0.25rem var(--color-shadow);
+  color: var(--color-accent);
+  font: 1rem/1 var(--font-sans);
+  margin: 0;
+  overflow: visible;
+  padding: 0.125rem 0.25rem;
+  text-transform: none;
+  transition: all 0.125s, outline 0s 0s;
+}
+button:not(:disabled) {
+  cursor: pointer;
+}
+@media only screen and (hover: hover) {
+  button:hover {
+    border-color: var(--color-accent);
+  }
+}
+button:active {
+  background-color: var(--color-accent);
+  color: var(--color-bg-1);
+}
+
+figure {
+  line-height: 1.25;
+  margin: 0 auto;
+  text-align: center;
+  transition: all 0.25s;
+}
+figure img {
+  border-radius: var(--border-radius);
+  filter: drop-shadow(0 0 0.125rem var(--color-shadow));
+  margin: auto;
+}
+figure * + figcaption {
+  margin-block-start: 1em;
+}
+
+footer {
+  border-block-start: 0.25rem dotted color-mix(in srgb, var(--color-txt-1), transparent);
+}
+
+img {
+  block-size: auto;
+  border: none;
+  display: block;
+  max-inline-size: 100%;
+}
+img, svg {
+  vertical-align: middle;
+}
+
+ol[role="list"], ul[role="list"] {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+p {
+  margin-block: 0;
+}
+p:where(:not(:last-child)) {
+  margin-block-end: 1em;
+}
+
+section:where(:not(:last-child)) {
+  margin-block-end: 2em;
+}
+section h2 {
+  border-block-end: 0.0625rem solid color-mix(in srgb, currentcolor, transparent);
+  font-weight: 600;
+  margin-block: 0.5em;
+}
+
+/* site-wide elements */
+
+#navbar, body > main, body > footer {
+  inline-size: min(100% - 1.25rem, 50rem);
+  margin-inline: auto;
+}
+#navbar {
+  align-items: center;
+  column-gap: 1.25em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#nav-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1.25;
+  margin-block: 0;
+}
+#nav-button {
+  display: none;
+}
+#nav-ul-wrapper {
+  display: inline-block;
+}
+#nav-ul {
+  align-items: center;
+  display: flex;
+  gap: 1em 1.125em;
+  justify-content: space-between;
+  margin-block: 0;
+}
+@media only screen and (max-width: 27rem) {
+  #nav-button {
+    display: inline-block;
+  }
+  #nav-button.active {
+    background-color: var(--color-accent);
+    color: var(--color-bg-1);
+  }
+  #nav-ul-wrapper {
+    display: grid;
+    flex-basis: 100%;
+    grid-template-rows: 0fr;
+    transition: all 0.175s ease;
+  }
+  #nav-button.active + #nav-ul-wrapper {
+    grid-template-rows: 1fr;
+    padding-block: 2.25em 0.25em;
+  }
+  #nav-button.active + #nav-ul-wrapper > #nav-ul {
+    visibility: visible;
+  }
+  #nav-ul {
+    align-items: flex-start;
+    flex-direction: column;
+    overflow: hidden;
+    visibility: hidden;
+  }
+}
+#scroll-to-top-button {
+  background-color: color-mix(in srgb, var(--color-bg-1), transparent 5%);
+  border-radius: 50%;
+  display: block;
+  inset: auto 1.25rem 1.25rem auto;
+  padding: 0.375rem;
+  position: fixed;
+  visibility: hidden;
+  z-index: 10;
+}
+#scroll-to-top-button.visible {
+  visibility: visible;
+}
+#site-info {
+  color: var(--color-txt-3);
+  line-height: 1;
+  margin-block: 1.5em;
+  text-align: center;
+}
+
+/* index.html */
+
+#bio-wrapper {
+  align-items: center;
+  display: flex;
+  gap: 1.25em;
+  justify-content: space-between;
+}
+#headshot {
+  background-color: var(--color-bg-2);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 0.125rem var(--color-shadow);
+  inline-size: 40%;
+  padding: 1em;
+}
+#headshot img {
+  aspect-ratio: 3 / 4;
+  inline-size: 75%;
+}
+@media (max-width: 34rem) {
+  #bio-wrapper {
+    flex-direction: column;
+  }
+  #headshot {
+    inline-size: 100%;
+  }
+  #headshot img {
+    inline-size: 50%;
+  }
+}
+
+#education-ol > li:where(:not(:last-child)) {
+  margin-block-end: 1em;
+}
+.degree {
+  font-weight: bolder;
+}
+.institution {
+  color: var(--color-txt-2);
+}
+#contact-links-ul > li:where(:not(:last-child)) {
+  margin-block-end: 1em;
+}
+
+/* certificates.html */
+
+#certificates-ol {
+  background-color: var(--color-bg-2);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 0.125rem var(--color-shadow);
+  padding: 1em 0.125em 1em 2em;
+}
+#certificates-ol > li:where(:not(:last-child)) {
+  margin-block-end: 1.5em;
+}
+.cert-name {
+  font-weight: bolder;
+}
+.issuer, .cert-id {
+  color: var(--color-txt-2);
+}
+.issue-date {
+  display: block;
+}
+.issue-date::before {
+  content: "Issued on ";
+}
+
+/* 404.html */
+
+#HTTP-404 {
+  background-color: var(--color-bg-2);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 0.125rem var(--color-shadow);
+  inline-size: fit-content;
+  padding: 1em 2em;
+}
+#HTTP-404 > div {
+  font-size: 5rem;
+  line-height: 1;
+}
+#HTTP-404 > figcaption {
+  font-size: 1.5rem;
+}
